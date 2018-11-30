@@ -16,11 +16,19 @@ class CrayonDetailViewController: UIViewController {
     @IBOutlet weak var crayonDetailGreen: UILabel!
     @IBOutlet weak var crayonDetailBlue: UILabel!
     @IBOutlet weak var crayonDetailAlpha: UILabel!
+    @IBOutlet weak var redSliderDefault: UISlider!
+    @IBOutlet weak var greenSliderDefault: UISlider!
+    @IBOutlet weak var blueSliderDefault: UISlider!
+    
+    
+    
+    
     
     
     var crayonInfo: Crayon?
     
-    var currentRedValue: CGFloat = 0.0 {
+    
+    var currentRedValue: CGFloat = 0.0   {
         didSet {
             crayonDetailRed.text = "\(currentRedValue)"
             crayonDetailViewColor.backgroundColor = UIColor(displayP3Red: CGFloat((currentRedValue))/255, green: CGFloat((currentGreenValue))/255, blue: CGFloat((currentBlueValue))/255, alpha: 1.0)
@@ -47,8 +55,8 @@ class CrayonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateCrayonDetails()
-        colorDefaults()
-        
+      colorDefaults()
+
         
     }
     
@@ -62,24 +70,24 @@ class CrayonDetailViewController: UIViewController {
 }
     private func colorDefaults() {
         crayonDetailRed.text = crayonInfo?.red.description
-        
+        redSliderDefault.value = Float(CGFloat((crayonInfo?.red)!))
         crayonDetailGreen.text = crayonInfo?.green.description
+        greenSliderDefault.value = Float(CGFloat((crayonInfo?.green)!))
         crayonDetailBlue.text = crayonInfo?.blue.description
+        blueSliderDefault.value = Float(CGFloat((crayonInfo?.blue)!))
     }
+
     
     
     @IBAction func redSlider(_ sender: UISlider) {
-        currentRedValue = CGFloat((crayonInfo?.red)!)
         currentRedValue = CGFloat(sender.value)
     }
     
     @IBAction func greenSlider(_ sender: UISlider) {
-        currentGreenValue = CGFloat((crayonInfo?.green)!)
         currentGreenValue = CGFloat(sender.value)
     }
     
     @IBAction func blueSlider(_ sender: UISlider) {
-        currentBlueValue = CGFloat((crayonInfo?.blue)!)
         currentBlueValue = CGFloat(sender.value)
     }
     
