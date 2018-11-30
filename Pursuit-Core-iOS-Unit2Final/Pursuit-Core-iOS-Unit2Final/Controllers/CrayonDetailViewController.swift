@@ -22,21 +22,21 @@ class CrayonDetailViewController: UIViewController {
     
     var currentRedValue: CGFloat = 0.0 {
         didSet {
-            crayonDetailRed.text = "The current red value is \(currentRedValue)"
+            crayonDetailRed.text = "\(currentRedValue)"
             crayonDetailViewColor.backgroundColor = UIColor(displayP3Red: CGFloat((currentRedValue))/255, green: CGFloat((currentGreenValue))/255, blue: CGFloat((currentBlueValue))/255, alpha: 1.0)
         }
     }
     
     var currentGreenValue: CGFloat = 0.0 {
         didSet {
-            crayonDetailGreen.text = "The current Green value is  \(currentGreenValue)"
+            crayonDetailGreen.text = "\(currentGreenValue)"
             crayonDetailViewColor.backgroundColor = UIColor(displayP3Red: CGFloat((currentRedValue))/255, green: CGFloat((currentGreenValue))/255, blue: CGFloat((currentBlueValue))/255, alpha: 1.0)
         }
     }
     
     var currentBlueValue: CGFloat = 0.0 {
         didSet {
-            crayonDetailBlue.text = "The current Blue Value is \(currentBlueValue)"
+            crayonDetailBlue.text = "\(currentBlueValue)"
             crayonDetailViewColor.backgroundColor = UIColor(displayP3Red: CGFloat((currentRedValue))/255, green: CGFloat((currentGreenValue))/255, blue: CGFloat((currentBlueValue))/255, alpha: 1.0)
         }
     }
@@ -47,7 +47,8 @@ class CrayonDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateCrayonDetails()
-
+        colorDefaults()
+        
         
     }
     
@@ -59,17 +60,26 @@ class CrayonDetailViewController: UIViewController {
    
 
 }
+    private func colorDefaults() {
+        crayonDetailRed.text = crayonInfo?.red.description
+        
+        crayonDetailGreen.text = crayonInfo?.green.description
+        crayonDetailBlue.text = crayonInfo?.blue.description
+    }
     
     
     @IBAction func redSlider(_ sender: UISlider) {
+        currentRedValue = CGFloat((crayonInfo?.red)!)
         currentRedValue = CGFloat(sender.value)
     }
     
     @IBAction func greenSlider(_ sender: UISlider) {
+        currentGreenValue = CGFloat((crayonInfo?.green)!)
         currentGreenValue = CGFloat(sender.value)
     }
     
     @IBAction func blueSlider(_ sender: UISlider) {
+        currentBlueValue = CGFloat((crayonInfo?.blue)!)
         currentBlueValue = CGFloat(sender.value)
     }
     
