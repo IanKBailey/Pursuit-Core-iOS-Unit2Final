@@ -85,12 +85,21 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="125" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="bS5-LP-090">
                                 <rect key="frame" x="9" y="162" width="357" height="31"/>
+                                <connections>
+                                    <action selector="redSlider:" destination="uMh-Hf-xqV" eventType="valueChanged" id="HLC-gO-XZP"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="125" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="ton-oV-Vxc">
                                 <rect key="frame" x="9" y="229" width="357" height="31"/>
+                                <connections>
+                                    <action selector="greenSlider:" destination="uMh-Hf-xqV" eventType="valueChanged" id="GQv-Er-Cmg"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="125" minValue="0.0" maxValue="255" translatesAutoresizingMaskIntoConstraints="NO" id="yN8-Fo-2SJ">
                                 <rect key="frame" x="9" y="296" width="357" height="75"/>
+                                <connections>
+                                    <action selector="blueSlider:" destination="uMh-Hf-xqV" eventType="valueChanged" id="sFK-rF-dts"/>
+                                </connections>
                             </slider>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1" stepValue="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="IAY-FH-fGV">
                                 <rect key="frame" x="140" y="508" width="94" height="29"/>
@@ -168,6 +177,10 @@
                         <viewLayoutGuide key="safeArea" id="xn3-fw-hFk"/>
                     </view>
                     <connections>
+                        <outlet property="crayonDetailAlpha" destination="UAR-ZC-l73" id="k8l-Fv-c8t"/>
+                        <outlet property="crayonDetailBlue" destination="sm7-Wg-W8o" id="cdw-lp-z44"/>
+                        <outlet property="crayonDetailGreen" destination="VdI-hv-16a" id="dxA-fd-Flc"/>
+                        <outlet property="crayonDetailRed" destination="xsq-eD-sgy" id="mdP-eA-L5k"/>
                         <outlet property="crayonDetailViewColor" destination="1D4-ap-ReA" id="ZK3-cQ-1vQ"/>
                         <outlet property="crayonDetailViewName" destination="pB4-Cs-XWh" id="Cq8-xR-XoI"/>
                     </connections>
