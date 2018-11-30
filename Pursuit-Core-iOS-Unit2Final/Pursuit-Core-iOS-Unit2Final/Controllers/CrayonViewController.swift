@@ -23,7 +23,15 @@ class CrayonViewController: UIViewController {
     tableView.dataSource = self
     // Do any additional setup after loading the view, typically from a nib.
   }
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let indexPath = tableView.indexPathForSelectedRow,
+            let crayonDetailViewController = segue.destination as?
+            CrayonDetailViewController else { return }
+        
+        let crayonInfo = crayons[indexPath.row]
+        
+        crayonDetailViewController.crayonInfo = crayonInfo
+    }
 
 }
 
